@@ -79,7 +79,7 @@ class StudentTable extends React.Component {
   render() {
     var filterName = this.props.filterName;
     var student = this.props.students.map(function(student, index) {
-      if (student.name.toLowerCase().indexOf(filterName)  === -1) {
+      if (student.name.indexOf(filterName)  === -1) {
         return;
       }
       return (
