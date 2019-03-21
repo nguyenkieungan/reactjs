@@ -6,7 +6,7 @@ class Students extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterName: [],
+      filterName: "",
       students:
       [
         {
@@ -79,7 +79,7 @@ class StudentTable extends React.Component {
   render() {
     var filterName = this.props.filterName;
     var student = this.props.students.map(function(student, index) {
-      if (student.name.indexOf(filterName)  === -1) {
+      if (student.name.toLowerCase().indexOf(filterName.toLowerCase())  === -1) {
         return;
       }
       return (
@@ -119,4 +119,3 @@ class StudentRow extends React.Component {
 }
 
 ReactDOM.render(<Students/>, document.getElementById('root'));
-
