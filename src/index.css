@@ -6,9 +6,59 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.datetime {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.countdown-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-box {
+  text-align: center;
+  margin: 0 20px;
+}
+
+.countdown-box__number {
+  font-size: 50px;
+  font-weight: bold;
+  width: 150px;
+  height: 150px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.datetime__input {
+  margin-bottom: 30px;
+}
+
+.datetime__input::-webkit-clear-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.datetime-input__display___10kTu {
+  position: relative !important;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.datetime-input__date___JuBJT {
+  font-size: 1.5em !important;
+  margin-right: 10px;
 }
