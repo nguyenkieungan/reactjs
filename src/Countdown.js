@@ -19,9 +19,11 @@ class Countdown extends Component {
 
   render() {
     return (
-      <div className="App">
-        <DateTime onChange={this.onDatetimeChange.bind(this)} />
-        <CountdownView deadline={this.state.deadline} />
+      <div className="col-sm-9">
+        <div className="react-ex__content">
+          <DateTime onChange={this.onDatetimeChange.bind(this)} />
+          <CountdownView deadline={this.state.deadline} />
+        </div>
       </div>
     );
   }

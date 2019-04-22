@@ -1,40 +1,39 @@
 import React, { Component } from "react";
 import moment from "moment";
-import { DatetimeInput } from "react-datetime-inputs";
+import { DatetimePicker, DatetimePickerTrigger } from "rc-datetime-picker";
+import "rc-datetime-picker/dist/picker.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class DateTime extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       datetime: null,
-      mindate: moment()
+      mindate: moment(),
+      moment: moment()
     };
   }
 
-  handleOnChange(value) {
+  handleChange = (moment) => {
     this.setState({
-      datetime: value
+      moment
     });
-    this.props.onChange(value);
+    this.props.onChange(moment);
   }
 
   render() {
     return (
       <div className="datetime">
-        <DatetimeInput
-          datetime={this.state.datetime}
-          onChange={this.handleOnChange.bind(this)}
-          minDate={this.state.mindate}
-        />
+        <DatetimePickerTrigger
+          moment={this.state.moment}
+          onChange={this.handleChange}
+          minDate={this.state.mindate}>
+          <input className="datetime__input" type="text" value={this.state.moment.format('ddd MMM DD YYYY HH:mm:ss')} readOnly/>
+          <span className="datetime__icon"><FontAwesomeIcon icon="calendar-alt" /></span>
+        </DatetimePickerTrigger>
       </div>
     );
   }
 }
-
-DatetimeInput.defaultProps = {
-  dateFormat: "ddd MMM DD YYYY",
-  timeFormat: "HH:mm:ss",
-  placeholder: "Choose Dates"
-};
 
 export default DateTime;

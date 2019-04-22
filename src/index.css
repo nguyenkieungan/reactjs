@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 code {
@@ -14,15 +15,62 @@ code {
     monospace;
 }
 
+.react-ex__header {
+  background: #33313b;
+  width: 100%;
+  color: #fdc57b;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  text-align: right;
+  border-bottom: 1px solid #fff;
+}
+
+.react-ex__sidebar {
+  background: #fdc57b;
+  padding: 0;
+}
+
+.react-ex__sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.react-ex__sidebar ul li {
+  padding: 10px;
+  border-bottom: 1px solid #fff;
+}
+
+.react-ex__sidebar ul li a {
+  color: #33313b;
+  text-decoration: none;
+}
+
+.react-ex__content {
+  padding-top: 30px;
+}
+
+.react-ex__footer {
+  width: 100%;
+  padding: 0 10px;
+  height: 50px;
+  line-height: 50px;
+  background: #eee;
+  border-top: 1px solid #fff;
+}
+
 .datetime {
-  width: 60%;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .countdown-content {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 }
 
 .countdown-box {
@@ -42,12 +90,23 @@ code {
 }
 
 .datetime__input {
-  margin-bottom: 30px;
+  width: 250px;
 }
 
-.datetime__input::-webkit-clear-button {
-  -webkit-appearance: none;
-  display: none;
+.datetime__input:focus {
+  border: 2px solid #fdc57b;
+  box-shadow: none;
+  outline: none;
+}
+
+.datetime__icon {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 8px;
+  vertical-align: middle;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
 }
 
 .datetime-input__display___10kTu {

@@ -42,9 +42,11 @@ class Students extends Component {
 
   render() {
     return (
-      <div className="container mt-3">
-        <SearchBar filterName={this.state.filterName} onSearchInput={this.searchInput.bind(this)}/>
-        <StudentTable users={this.state.users} filterName={this.state.filterName}/>
+      <div class="col-sm-9">
+        <div className="react-ex__content">
+          <SearchBar filterName={this.state.filterName} onSearchInput={this.searchInput.bind(this)}/>
+          <StudentTable users={this.state.users} filterName={this.state.filterName}/>
+        </div>
       </div>
     )
   }
