@@ -8,6 +8,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import Students from './Student';
 import Countdown from './Countdown';
 import RefsForm from './refs-form/RefsForm';
+import Redux from './redux/index';
 
 
 var routing = (
@@ -29,13 +30,17 @@ var routing = (
                 <Link to="/countdown">19/04/21 - Countdown</Link>
               </li>
               <li>
-              <Link to="/refs-form">Practice Day 1 - Refs Form</Link>
+                <Link to="/refs-form">Practice Day 1 - Refs Form</Link>
+              </li>
+              <li>
+                <Link to="/redux">Practice Day 2 - Redux</Link>
               </li>
             </ul>
           </div>
           <Route path="/students" component={Students}/>
           <Route path="/countdown" component={Countdown}/>
           <Route path="/refs-form" component={RefsForm} />
+          <Route path="/redux" component={Redux} />
         </div>
         <div className="row"> 
           <div className="react-ex__footer">
