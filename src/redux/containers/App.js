@@ -29,10 +29,12 @@ class App extends Component {
   render() {
     const { todoList } = this.props;
     return (
-      <div className="app mt-3 mb-3">
+      <div className="todo mt-3 mb-3 ml-3">
         <h5>To Do List App</h5>
-        <NewTodoInput onTextChange={this.handleTodoTextChange}/>
-        <AddTodoButton onClick={this.handleSubmit}/>
+        <div className="d-flex">
+          <NewTodoInput onTextChange={this.handleTodoTextChange}/>
+          <AddTodoButton onClick={this.handleSubmit}/>
+        </div>
         <ToDoList todos={todoList}/>
       </div>
     );

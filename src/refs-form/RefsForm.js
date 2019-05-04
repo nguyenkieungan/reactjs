@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 
 class RefsForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      fullName: ''
+    }
+  }
+
+  // handleChange = (e) => {
+  //   this.setState({
+  //     fullName: e.target.value
+  //   })
+  // }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const payload = {
+    const results = {
       fullName: this.fullName.value,
       genderType: this.genderType.value
     };
-    console.log(payload);
+    console.log(results);
   }
   render() {
     return (

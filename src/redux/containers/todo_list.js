@@ -22,7 +22,7 @@ class ToDoList extends Component {
   render() {
     const { todos } = this.props
     return (
-      <ul>
+      <ul className="todo__list">
         {todos.map(
           todo => <ToDoItem deleteTodo={this.deleteTodo} key={todo.id} todo={todo}/>
         )}
