@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader';
 
 import AddTodoButton from '../components/addTodo';
 import NewTodoInput from '../components/newTodo';
+import FilterTodo from '../components/filterTodo';
 import ToDoList from './todo_list';
 
 class App extends Component {
@@ -29,11 +30,14 @@ class App extends Component {
   render() {
     const { todoList } = this.props;
     return (
-      <div className="app mt-3 mb-3">
+      <div className="todo mt-3 mb-3 ml-3">
         <h5>To Do List App</h5>
-        <NewTodoInput onTextChange={this.handleTodoTextChange}/>
-        <AddTodoButton onClick={this.handleSubmit}/>
+        <div className="d-flex">
+          <NewTodoInput onTextChange={this.handleTodoTextChange}/>
+          <AddTodoButton onClick={this.handleSubmit}/>
+        </div>
         <ToDoList todos={todoList}/>
+        <FilterTodo />
       </div>
     );
   }

@@ -16,10 +16,11 @@ class NewTodoInput extends Component {
 
   render() {
     return (
-      <div className="input-new-todo">
+      <div className="todo__box">
         <input
           onChange={event => this.handleInputChange(event.target.value)}
           type="text"
+          className="form-control todo__box-input"
           placeholder="new task"
           value={this.state.task}
         />
