@@ -41,6 +41,7 @@ export function* deleteTodo({id}) {
 }
 
 function* watchDeleteTodo() {
+  // takeEvery: thực thi và trả lại kết quả của mọi actions được gọi
   yield takeEvery('DELETE_TODO', deleteTodo)
 }
 

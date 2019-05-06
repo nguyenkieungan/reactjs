@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader';
 
 import AddTodoButton from '../components/addTodo';
 import NewTodoInput from '../components/newTodo';
+import FilterTodo from '../components/filterTodo';
 import ToDoList from './todo_list';
 
 class App extends Component {
@@ -36,6 +37,7 @@ class App extends Component {
           <AddTodoButton onClick={this.handleSubmit}/>
         </div>
         <ToDoList todos={todoList}/>
+        <FilterTodo />
       </div>
     );
   }
