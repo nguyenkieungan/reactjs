@@ -9,6 +9,7 @@ import Students from './Student';
 import Countdown from './Countdown';
 import RefsForm from './refs-form/RefsForm';
 import Redux from './redux/index';
+import SearchYtb from './search-youtube/index';
 
 
 var routing = (
@@ -30,6 +31,9 @@ var routing = (
                 <Link to="/countdown">19/04/21 - Countdown</Link>
               </li>
               <li>
+                <Link to="/search-youtube">19/05/21 - Search Youtube API</Link>
+              </li>
+              <li>
                 <Link to="/refs-form">Practice Day 1 - Refs Form</Link>
               </li>
               <li>
@@ -39,6 +43,7 @@ var routing = (
           </div>
           <Route path="/students" component={Students}/>
           <Route path="/countdown" component={Countdown}/>
+          <Route path="/search-youtube" component={SearchYtb} />
           <Route path="/refs-form" component={RefsForm} />
           <Route path="/redux" component={Redux} />
         </div>
