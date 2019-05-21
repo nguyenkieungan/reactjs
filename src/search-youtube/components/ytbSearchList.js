@@ -6,7 +6,7 @@ class YtbSearchList extends React.Component {
     const {vlists} = this.props;
     return (
       <div className="searchytb-list mt-3 mb-3">
-        <h6>Newest</h6>
+        <h6>Most Popular</h6>
         <div className="row">
           {vlists.map((vlists, i) => 
             <YtbListLayout key={i} vlists={vlists} />

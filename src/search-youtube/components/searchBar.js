@@ -1,8 +1,9 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
+
   render() {
-    const { filterVal, filterUpdate } = this.props;
+    const { filterVal,filterUpdate } = this.props;
     return (
       <form>
         <input 

@@ -29,7 +29,7 @@ class YtbListLayout extends React.Component {
 
   static getFormattedViewAndTime(vlists) {
     const publishDate = new Date(vlists.snippet.publishedAt);
-    return `views • ${timeAgo.format(publishDate)}`;
+    return `${timeAgo.format(publishDate)}`;
   }
 }
 

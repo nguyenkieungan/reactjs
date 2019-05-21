@@ -4,10 +4,10 @@ export function ytbApiServiceCall(filterText, pageToken) {
     pageTokenVal = "&pageToken="+pageToken;
   }
 
-  const val = filterText;
-  const api_key = "AIzaSyAM7H6C1_n1_BQUv5675-UaExr1-SCqsfI";
+  const val = encodeURIComponent(filterText);
+  const api_key = "AIzaSyAZTSvaO51nzolYNiqlQ6V_Bm1Gje8_x0A";
 
-  const url1 = "https://www.googleapis.com/youtube/v3/search?chart=mostPopular&key="+api_key+"&q="+val+"&part=snippet&maxResults=10"+pageTokenVal;
+  const url1 = "https://www.googleapis.com/youtube/v3/search?chart=mostPopular&key="+api_key+"&q="+val+"&part=snippet,id&maxResults=10"+pageTokenVal;
 
   const p1 = new Promise((resolve, reject) => {
     fetch(url1, {
@@ -19,6 +19,7 @@ export function ytbApiServiceCall(filterText, pageToken) {
       .then(res => res.json())
       .then(function (data) {
         const vlists = data.items.map(obj => obj);
+        
         const {nextPageToken, prevPageToken} = data;
         const objects = {
           'vlists': vlists,
@@ -35,13 +36,13 @@ export function ytbApiServiceCall(filterText, pageToken) {
   return p1;
 };
 
-export function ytbGetServiceCall(pageToken) {
+export function ytbGetServiceCall(pageToken, videoid) {
   let pageTokenVal = '';
   if (pageToken) {
     pageTokenVal = "&pageToken="+pageToken;
   }
 
-  const api_key = "AIzaSyAM7H6C1_n1_BQUv5675-UaExr1-SCqsfI";
+  const api_key = "AIzaSyAZTSvaO51nzolYNiqlQ6V_Bm1Gje8_x0A";
   const url2 = "https://www.googleapis.com/youtube/v3/videos?chart=mostPopular&key="+api_key+"&part=snippet,statistics&maxResults=10"+pageTokenVal;
 
   const p2 = new Promise((resolve, reject) => {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SearchBar from './components/searchBar';
 import YtbSearchList from './components/ytbSearchList';
-import YtbList from './components/ytbList';
 import { ytbApiServiceCall, ytbGetServiceCall } from './services/ytbSearchData';
 
 class SearchYtb extends Component {
@@ -11,7 +10,6 @@ class SearchYtb extends Component {
 
     this.state = {
       vlists: [],
-      flists: [],
       filterText: '',
       videoId: '',
       nextPageToken: '',
@@ -42,17 +40,13 @@ class SearchYtb extends Component {
         'vlists': obj.vlists
       });
     })
+    console.log(value);
   };
 
   componentDidMount() {
     ytbApiServiceCall(this.state.filterText).then((obj) => {
       this.setState({
         'vlists': obj.vlists
-      });
-    });
-    ytbGetServiceCall().then((obj) => {
-      this.setState({
-        'flists': obj.flists
       });
     });
   }
@@ -62,9 +56,8 @@ class SearchYtb extends Component {
       <div className="col-sm-9">
         <div className="searchytb-container mt-3 ml-3">
           <h5>Search Youtube API</h5>
-          <SearchBar filterVal={this.state.filterText} filterUpdate={this.filterUpdate.bind(this)} />
+          <SearchBar filterVar={this.state.filterText} filterUpdate={this.filterUpdate.bind(this)} />
           <YtbSearchList vlists={this.state.vlists} />
-          {/* <YtbList flists={this.state.flists} /> */}
         </div>
       </div>
     )
