@@ -185,3 +185,7 @@ button:focus {
   margin-bottom: 7px;
   display: block;
 }
+
+.searchytb-list__text--uppercase {
+  text-transform: uppercase;
+}

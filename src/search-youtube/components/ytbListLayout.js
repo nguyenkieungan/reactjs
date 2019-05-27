@@ -1,20 +1,21 @@
 import React from 'react';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
+import numeral from 'numeral';
 
 TimeAgo.locale(en);
 const timeAgo = new TimeAgo('en-US');
 
 class YtbListLayout extends React.Component {
   render() {
-    const {vlists} = this.props;
-    const viewAndTimeString = YtbListLayout.getFormattedViewAndTime(vlists);
+    const {vlist} = this.props;
+    const viewAndTimeString = YtbListLayout.getFormattedViewAndTime(vlist);
 
-      const url = "https://www.youtube.com/watch?v="+vlists.id.videoId,
-            imgUrl = vlists.snippet.thumbnails.high.url,
-            title = vlists.snippet.title,
-            channelTitle = vlists.snippet.channelTitle,
-            channelUrl = 'https://www.youtube.com/channel/'+vlists.snippet.channelId
+      const url = "https://www.youtube.com/watch?v="+vlist.id.videoId,
+            imgUrl = vlist.snippet.thumbnails.high.url,
+            title = vlist.snippet.title,
+            channelTitle = vlist.snippet.channelTitle,
+            channelUrl = 'https://www.youtube.com/channel/'+vlist.snippet.channelId;
     return (
       <div className="col-md-3">
         <a className="searchytb-list__thumbnail pull-left" href={url}><img src={imgUrl} width="210" height="118" /></a>
@@ -27,9 +28,11 @@ class YtbListLayout extends React.Component {
     )
   }
 
-  static getFormattedViewAndTime(vlists) {
-    const publishDate = new Date(vlists.snippet.publishedAt);
-    return `${timeAgo.format(publishDate)}`;
+  static getFormattedViewAndTime(vlist) {
+    const publishDate = new Date(vlist.snippet.publishedAt);
+    const viewCount = numeral(vlist.statistics.viewCount).format('0.0a');
+    const viewtime = `<span class="searchytb-list__text--uppercase">${viewCount}</span> views • ${timeAgo.format(publishDate)}`;
+    return <span dangerouslySetInnerHTML={{ __html: viewtime }} />;
   }
 }
 

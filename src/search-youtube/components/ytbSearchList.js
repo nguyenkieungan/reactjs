@@ -3,13 +3,13 @@ import YtbListLayout from './ytbListLayout';
 
 class YtbSearchList extends React.Component {
   render() {
-    const {vlists} = this.props;
+    const {vlist} = this.props;
     return (
       <div className="searchytb-list mt-3 mb-3">
         <h6>Most Popular</h6>
         <div className="row">
-          {vlists.map((vlists, i) => 
-            <YtbListLayout key={i} vlists={vlists} />
+          {vlist.map((vlist, i) => 
+            <YtbListLayout key={i} vlist={vlist} />
           )}
         </div>
       </div>

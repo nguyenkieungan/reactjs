@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SearchBar from './components/searchBar';
 import YtbSearchList from './components/ytbSearchList';
-import { ytbApiServiceCall, ytbGetServiceCall } from './services/ytbSearchData';
+import { ytbApiServiceCall } from './services/ytbSearchData';
 
 class SearchYtb extends Component {
   constructor(props) {
@@ -10,8 +10,8 @@ class SearchYtb extends Component {
 
     this.state = {
       vlists: [],
+      vlist: [],
       filterText: '',
-      videoId: '',
       nextPageToken: '',
       prevPageToken: '',
       pageToken: ''
@@ -21,12 +21,8 @@ class SearchYtb extends Component {
   tokenUpdate(token) {
     ytbApiServiceCall(this.state.filterText, token).then((obj) => {
       this.setState({
-        'vlists': obj.vlists
-      });
-    });
-    ytbGetServiceCall(token).then((obj) => {
-      this.setState({
-        'flists': obj.flists
+        'vlists': obj.vlists,
+        'vlist': obj.vlist
       });
     });
   };
@@ -37,18 +33,19 @@ class SearchYtb extends Component {
     });
     ytbApiServiceCall(this.state.filterText).then((obj) => {
       this.setState({
-        'vlists': obj.vlists
+        'vlists': obj.vlists,
+        'vlist': obj.vlist
       });
     })
-    console.log(value);
   };
 
   componentDidMount() {
     ytbApiServiceCall(this.state.filterText).then((obj) => {
       this.setState({
-        'vlists': obj.vlists
+        'vlists': obj.vlists,
+        'vlist': obj.vlist
       });
-    });
+    });    
   }
 
   render() {
@@ -57,7 +54,7 @@ class SearchYtb extends Component {
         <div className="searchytb-container mt-3 ml-3">
           <h5>Search Youtube API</h5>
           <SearchBar filterVar={this.state.filterText} filterUpdate={this.filterUpdate.bind(this)} />
-          <YtbSearchList vlists={this.state.vlists} />
+          <YtbSearchList vlist={this.state.vlist} />
         </div>
       </div>
     )
