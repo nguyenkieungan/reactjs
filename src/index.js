@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Link, BrowserRouter, Redirect, HashRouter, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import Home from './Home';
 import Students from './Student';
 import Countdown from './Countdown';
 import RefsForm from './refs-form/RefsForm';
 import Redux from './redux/index';
 import SearchYtb from './search-youtube/index';
 
-
 var routing = (
-  <Router>
+  <HashRouter>
     <div className="react-ex">
       <div className="container-fluid">
         <div className="row"> 
@@ -41,6 +41,7 @@ var routing = (
               </li>
             </ul>
           </div>
+          <Route path="/reactjs" exact component={Home}/>
           <Route path="/students" component={Students}/>
           <Route path="/countdown" component={Countdown}/>
           <Route path="/search-youtube" component={SearchYtb} />
@@ -54,9 +55,8 @@ var routing = (
         </div>
       </div>
     </div>
-  </Router>
+  </HashRouter>
 )
-
 library.add(fas);
 
 ReactDOM.render(routing, document.getElementById('root'));

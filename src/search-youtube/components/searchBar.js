@@ -1,18 +1,19 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class SearchBar extends React.Component {
-
   render() {
-    const { filterVal,filterUpdate } = this.props;
+    const { filterVal,filterUpdate,search } = this.props;
     return (
-      <form>
+      <form className="d-flex">
         <input 
         class="form-control" 
         placeholder="Search Bar..."
         type="text"
         ref="filterInput"
         value={filterVal}
-        onChange={() => {filterUpdate(this.refs.filterInput.value)}} />
+        onChange={filterUpdate} />
+        <button className="searchytb-list__btn-search" onClick={search}><span className=""><FontAwesomeIcon icon="search" /></span></button>
       </form>
     )
   }
