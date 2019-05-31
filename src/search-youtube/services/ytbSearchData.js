@@ -5,9 +5,9 @@ export function ytbApiServiceCall(filterText, pageToken) {
   }
 
   const val = filterText;
-  const api_key = "AIzaSyB8on7ZhELOZGEAd-Et-PV4CcQGZ6ZFfV0";
+  const api_key = "AIzaSyDPKpD12tSxh72VZkeWneYealD_Tgxcy9M";
 
-  const url1 = "https://www.googleapis.com/youtube/v3/search?chart=mostPopular&key="+api_key+"&q="+val+"&part=snippet,id&maxResults=10"+pageTokenVal;
+  const url1 = "https://www.googleapis.com/youtube/v3/search?key="+api_key+"&q="+val+"&part=snippet,id&maxResults=10"+pageTokenVal;
 
   const p1 = new Promise((resolve, reject) => {
     fetch(url1, {

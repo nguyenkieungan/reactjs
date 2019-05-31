@@ -60,6 +60,10 @@ code {
   border-top: 1px solid #fff;
 }
 
+.react-ex__footer p {
+  margin-bottom: 0;
+}
+
 .datetime {
   display: flex;
   justify-content: center;
@@ -188,4 +192,12 @@ button:focus {
 
 .searchytb-list__text--uppercase {
   text-transform: uppercase;
+}
+
+.searchytb-list__btn-search {
+  width: 80px;
+  border: none;
+  background: #fdc57b;
+  border-radius: 4px;
+  margin-left: 4px;
 }
