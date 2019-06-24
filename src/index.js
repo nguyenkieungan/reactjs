@@ -11,6 +11,7 @@ import Countdown from './Countdown';
 import RefsForm from './refs-form/RefsForm';
 import Redux from './redux/index';
 import SearchYtb from './search-youtube/index';
+import UserRedux from './user-redux/index';
 
 var routing = (
   <HashRouter>
@@ -34,6 +35,12 @@ var routing = (
                 <Link to="/search-youtube">19/05/21 - Search Youtube API</Link>
               </li>
               <li>
+                <Link to="/user-redux">19/06/21 - Users Management</Link>
+              </li>
+              {/* <li>
+                <Link to="/user-management">19/06/21 - User Management</Link>
+              </li> */}
+              <li>
                 <Link to="/refs-form">Practice Day 1 - Refs Form</Link>
               </li>
               <li>
@@ -45,6 +52,8 @@ var routing = (
           <Route path="/students" component={Students}/>
           <Route path="/countdown" component={Countdown}/>
           <Route path="/search-youtube" component={SearchYtb} />
+          <Route path="/user-redux" component={UserRedux} />
+          {/* <Route path="/user-management" component={UserManagement} /> */}
           <Route path="/refs-form" component={RefsForm} />
           <Route path="/redux" component={Redux} />
         </div>
